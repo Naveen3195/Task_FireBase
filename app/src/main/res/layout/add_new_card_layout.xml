@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16sp"
+        android:layout_marginEnd="4dp"
+        android:visibility="visible"
+        app:cardCornerRadius="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/conBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cardview_gradient">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/visaImg"
+                android:layout_width="92dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="16sp"
+                android:background="@color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/visa"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/expiryTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16sp"
+                android:background="@color/transparent"
+                android:text="@string/expiry_date"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/visaImg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/view"
+                app:layout_constraintTop_toTopOf="@+id/visaImg" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_textview2"
+                app:layout_constraintEnd_toEndOf="@+id/expiryTxt"
+                app:layout_constraintStart_toStartOf="@+id/expiryTxt"
+                app:layout_constraintTop_toBottomOf="@+id/expiryTxt">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/expMon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="MM"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:padding="14sp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/expYr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="YY"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:padding="14sp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/expMon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/expMon"
+                    app:layout_constraintTop_toTopOf="@+id/expMon" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cdNumTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="16sp"
+                android:background="@color/transparent"
+                android:text="@string/card_number"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/expCons" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cdNum"
+                style="@style/editText"
+                android:layout_marginStart="16sp"
+                android:layout_marginEnd="16sp"
+                android:background="@drawable/custom_textview2"
+                android:inputType="number"
+                android:maxLength="16"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cdNumTxt" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cdNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16sp"
+                android:background="@color/transparent"
+                android:text="CARD HOLDER"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/cdNum"
+                app:layout_constraintTop_toBottomOf="@+id/cdNum" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.65"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cdHolder"
+                style="@style/editText"
+                android:layout_marginEnd="16sp"
+                android:layout_marginBottom="16sp"
+                android:background="@drawable/custom_textview2"
+                android:inputType="text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/view"
+                app:layout_constraintStart_toStartOf="@+id/cdNum"
+                app:layout_constraintTop_toBottomOf="@+id/cdNameTxt" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cdCvvTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:text="CVV"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/cdNameTxt"
+                app:layout_constraintStart_toEndOf="@+id/view"
+                app:layout_constraintTop_toTopOf="@+id/cdNameTxt" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cdCvvNo"
+                style="@style/editText"
+                android:background="@drawable/custom_textview2"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/cdNum"
+                app:layout_constraintStart_toStartOf="@+id/view"
+                app:layout_constraintTop_toBottomOf="@+id/cdNameTxt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/conBtn"
+        style="@style/buttonStyle"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="16sp"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="16sp"
+        android:text="Add Card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardCV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

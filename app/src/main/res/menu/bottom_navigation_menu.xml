@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navHomeBtn"
+        android:icon="@drawable/orders_selector"
+        app:itemIconSize="32dp"
+        android:title="@string/home"/>
+
+    <item
+        android:id="@+id/navOrdersBtn"
+        android:enabled="true"
+        android:visible="true"
+        android:icon="@drawable/history_selector"
+        app:itemIconSize="32sp"
+        android:title="@string/my_cards"/>
+
+    <item
+        android:id="@+id/navEWallBtn"
+        android:icon="@drawable/profile_selector"
+        app:itemIconSize="32sp"
+        android:title="Profile"/>
+
+</menu>
