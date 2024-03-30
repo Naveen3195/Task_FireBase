@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.LoginFragment">
-
+    tools:context=".ui.adapter.LoginActivity">
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logo"
         android:layout_width="100dp"
@@ -41,18 +40,58 @@
         app:layout_constraintEnd_toEndOf="@+id/header"
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintBottom_toTopOf="@id/userPwd"
+        app:layout_constraintBottom_toTopOf="@id/pwdCons"
         android:textColorHint="@color/grey"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/userPwd"
-        style="@style/editText"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pwdCons"
+        android:layout_width="0dp"
+        android:layout_height="48sp"
         android:layout_marginTop="16dp"
-        android:hint="@string/enter_your_password"
+        android:background="@drawable/custom_textview"
         app:layout_constraintEnd_toEndOf="@id/UserName"
         app:layout_constraintStart_toStartOf="@id/UserName"
         app:layout_constraintTop_toBottomOf="@+id/UserName"
-        app:layout_constraintBottom_toTopOf="@id/loginBtn"/>
+        app:layout_constraintBottom_toTopOf="@id/loginBtn">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_height="48sp"
+            android:layout_width="match_parent"
+            android:id="@+id/userPwd"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:paddingStart="16sp"
+            android:textColorHint="@color/grey"
+            android:hint="@string/enter_your_password"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/gone"
+            android:layout_width="38sp"
+            android:layout_height="38dp"
+            app:layout_constraintEnd_toEndOf="@id/userPwd"
+            app:layout_constraintTop_toTopOf="@+id/userPwd"
+            app:layout_constraintBottom_toBottomOf="@id/userPwd"
+            android:layout_marginEnd="16sp"
+            android:src="@drawable/hide"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/visible"
+            android:layout_width="38sp"
+            android:layout_height="38dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/userPwd"
+            app:layout_constraintTop_toTopOf="@+id/userPwd"
+            app:layout_constraintBottom_toBottomOf="@id/userPwd"
+            android:layout_marginEnd="16sp"
+            android:src="@drawable/visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtn"
@@ -60,9 +99,9 @@
         android:background="@drawable/button_alter"
         android:text="@string/login"
         style="@style/buttonStyle"
-        app:layout_constraintEnd_toEndOf="@+id/userPwd"
-        app:layout_constraintStart_toStartOf="@id/userPwd"
-        app:layout_constraintTop_toBottomOf="@id/userPwd"
+        app:layout_constraintEnd_toEndOf="@+id/pwdCons"
+        app:layout_constraintStart_toStartOf="@id/pwdCons"
+        app:layout_constraintTop_toBottomOf="@id/pwdCons"
         app:layout_constraintBottom_toTopOf="@id/signUp"/>
 
     <androidx.appcompat.widget.AppCompatTextView

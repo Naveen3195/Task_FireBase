@@ -141,6 +141,8 @@ class AddFragment : Fragment() {
                                     map["wal_blc"] = sendAmt
                                     userDbRef.updateChildren(map).addOnCompleteListener {
                                         showToast("Amount Transferred")
+                                        binding.barCodeBtn.visibility = View.VISIBLE
+                                        binding.barCodeTxt.visibility = View.GONE
                                     }.addOnFailureListener {
                                         showToast(it.message.toString())
                                     }
@@ -173,7 +175,9 @@ class AddFragment : Fragment() {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val dbtAmt = updatedWalAmt - binding.amt.text.toString().toInt()
                         val walModel = WalletModel(dbtAmt)
-                        cuserDbRef.setValue(walModel).addOnCompleteListener {}
+                        cuserDbRef.setValue(walModel).addOnCompleteListener {
+                            binding.amt.setText("")
+                        }
                             .addOnFailureListener {
                                 showToast("Debit Failed")
                             }
@@ -259,8 +263,8 @@ class AddFragment : Fragment() {
     fun onEvent(event: EventModel) {
         if (event != null) {
             binding.barCodeBtn.visibility = View.GONE
-            binding.addCardTxt.visibility = View.VISIBLE
-            binding.addCardTxt.text = event.id
+            binding.barCodeTxt.visibility = View.VISIBLE
+            binding.barCodeTxt.text = event.id
             userKey = event.id
             bus.removeStickyEvent(event)
         }

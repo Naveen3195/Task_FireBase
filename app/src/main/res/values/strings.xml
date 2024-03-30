@@ -24,5 +24,7 @@
     <string name="card_number">CARD NUMBER</string>
     <string name="add_your_card">Add Your Card</string>
     <string name="inr_with">₹%1$s</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="logout_content">Are you sure you want to log out?</string>
 
 </resources>

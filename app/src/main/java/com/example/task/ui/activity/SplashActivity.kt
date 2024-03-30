@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
 import com.example.task.databinding.ActivitySplashBinding
-import com.example.task.ui.fragment.LoginFragment
+import com.example.task.ui.adapter.LoginActivity
 import com.example.task.ui.models.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
             val userId = authVM.sharHelp.getFromUser("userId")
             println("userId:: $userId")
             if (userId.isNullOrBlank()){
-                authVM.navHelper.moveFrag(android.R.id.content, LoginFragment(), false, supportFragmentManager)
+                authVM.navHelper.setIntent(LoginActivity::class.java, 1, this)
             } else {
                 authVM.navHelper.setIntent(HomeActivity::class.java, 1, this)
             }
